@@ -1,4 +1,5 @@
-Trabajo Individual de Teoría de la Decisión bajo Incertidumbre
+Trabajo Individual de Teoría de la Decisión bajo Incertidumbre.
+
 Alumno: Federica Rubino
 
 En este trabajo se pretende crear dos problemas inventados con su posterior solución, en los que aplicaré los conocimientos proporcionados en clase sobre los diferentes criterios de toma de decisiones en condiciones de incertidumbre.
