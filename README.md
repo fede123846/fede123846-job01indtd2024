@@ -15,7 +15,11 @@ Basado en un escenario real. La resolución de este problema se lleva a cabo apl
 Contenido:
 
 .gitignore:Archivo que contienen patrones que establecen coincidencias con los nombres de archivo del repositorio para determinar si deberían ignorarse o no.
+
 Enunciados_Problemas_Individual.Rmd: Archivo solo con los enunciados completos de los problemas inventados.
+
 Problemas_Resueltos_Individual.Rdm: Archivo que contiene la resolución y pasos a seguir para solución de los distintos problemas.
+
 teoriadecision_funciones_incertidumbre.R: Archivo que contiene todas las funciones para definir los distintos criterios. Es necesaria para poder ejecutar el código.
+
 trabajo_Individual.Rproj: Extensión del proyecto de R. También se puede utilizar como acceso directo para abrir el proyecto directamente desde el sistema de archivos .
