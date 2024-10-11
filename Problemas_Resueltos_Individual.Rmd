@@ -6,13 +6,14 @@ output: html_document
 ---
 
 ```{r}
-## Primer Problema: Tabla de Decisión Inventada
+## Problema 1: 
 
 source("teoriadecision_funciones_incertidumbre.R")
-# Crear la tabla de decisión 
-tb1 = crea.tablaX(c(300, 500, 200,   
-                    200, 300, 400,   
-                    -100, 50, -200), 
+
+# Crear la tabla de decisión
+tb1 = crea.tablaX(c(300, 500, 200,   # Opción A
+                    200, 300, 400,   # Opción B
+                    -100, 50, -200), # Opción C
                   numalternativas = 3, numestados = 3)
 
 # Mostrar la tabla de decisión
@@ -117,8 +118,7 @@ print("Resultado según el Criterio de Savage (Desfavorable):")
 savage_result_desfavorable$AlternativaOptima
 ```
 
-Este problema inventado demuestra cómo diferentes métodos de toma de decisiones bajo incertidumbre pueden sugerir diferentes estrategias dependiendo de si el escenario es favorable o desfavorable.
-
+En el caso de una situación favorable, la mejor alternativa es la opción A para cada método, mientras que en el caso de una situación desfavorable la mejor alternativa es la C
 
 
 Problema 2: escenario real. 

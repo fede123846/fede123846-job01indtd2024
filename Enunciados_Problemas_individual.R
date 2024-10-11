@@ -1,0 +1,40 @@
+---
+  title: "Enunciados_Problemas_individual"
+author: "FEDERICA RUBINO"
+date: "2024-10-10"
+output: html_document
+---
+  
+Problema 1: 
+
+Un gimnasio está considerando realizar mejoras en sus instalaciones 
+para atraer a más clientes. Tiene tres opciones A, B, C.
+
+El gimnasio enfrenta tres posibles escenarios de demanda:
+  
+Escenario 1, Escenario 2, Escenario 3.
+El gimnasio ha estimado las ganancias o pérdidas (en miles de euros) 
+para cada opción según los posibles escenarios:
+  
+```{r}
+source("teoriadecision_funciones_incertidumbre.R")
+tb1 = crea.tablaX(c(300, 500, 200,
+                    200, 300, 400,
+                    -100, 50, -200), numalternativas = 3, numestados = 3)
+```
+
+
+Problema 2: Escenario real
+
+Una pequeña cafetería está considerando la compra de una nueva máquina de café para mejorar su capacidad de servicio. Tiene dos opciones:
+  
+  Opción A: Comprar una máquina básica por 20,000 euros.
+Opción B: Comprar una máquina avanzada por 40,000 euros, que mejora la velocidad de servicio y la calidad del café.
+La cafetería enfrenta dos posibles escenarios futuros en relación con la demanda de café:
+  
+  - Escenario Favorable: La demanda de café aumenta significativamente, generando ingresos adicionales de 60,000 euros.
+- Escenario Desfavorable: La demanda se mantiene estable, generando ingresos adicionales de solo 20,000 euros.
+
+La cafetería debe decidir si comprar la máquina básica o la avanzada, sin estar segura de cómo evolucionará la demanda en los próximos años. 
+
+
