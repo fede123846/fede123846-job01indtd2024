@@ -1,0 +1,155 @@
+---
+title: "Problemas_Resueltos_Individual"
+author: "FEDERICA RUBINO"
+date: "2024-10-10"
+output: html_document
+---
+
+```{r}
+## Primer Problema: Tabla de Decisión Inventada
+
+source("teoriadecision_funciones_incertidumbre.R")
+# Crear la tabla de decisión 
+tb1 = crea.tablaX(c(300, 500, 200,   
+                    200, 300, 400,   
+                    -100, 50, -200), 
+                  numalternativas = 3, numestados = 3)
+
+# Mostrar la tabla de decisión
+print("Tabla de decisión:")
+tb1
+```
+Evaluación por Métodos de Decisión (Situaciones Favorables y Desfavorables)
+
+
+Criterio de Wald (Pesimista):
+Este criterio selecciona la estrategia que minimiza el peor resultado posible para cada alternativa.
+
+```{r}
+## Situación Favorable:
+  
+wald_result_favorable = criterio.Wald(tb1, favorable = TRUE)
+print("Resultado según el Criterio de Wald (Favorable):")
+wald_result_favorable$AlternativaOptima
+```
+
+```{r}
+## Situación Desfavorable:
+
+wald_result_desfavorable = criterio.Wald(tb1, favorable = FALSE)
+print("Resultado según el Criterio de Wald (Desfavorable):")
+wald_result_desfavorable$AlternativaOptima
+```
+
+Criterio Optimista:
+Selecciona la alternativa que tiene el mejor resultado en el escenario más favorable.
+
+```{r}
+## Situación Favorable:
+
+opt_result_favorable = criterio.Optimista(tb1, favorable = TRUE)
+print("Resultado según el Criterio Optimista (Favorable):")
+opt_result_favorable$AlternativaOptima
+```
+
+```{r}
+## Situación Desfavorable:
+
+opt_result_desfavorable = criterio.Optimista(tb1, favorable = FALSE)
+print("Resultado según el Criterio Optimista (Desfavorable):")
+opt_result_desfavorable$AlternativaOptima
+```
+
+Criterio de Hurwicz (Ponderación 60%)
+Este criterio equilibra el optimismo y el pesimismo. Usamos un coeficiente alfa de 0.6.
+
+```{r}
+## Situación Favorable:
+
+hurwicz_result_favorable = criterio.Hurwicz(tb1, alfa = 0.6, favorable = TRUE)
+print("Resultado según el Criterio de Hurwicz (Favorable):")
+hurwicz_result_favorable$AlternativaOptima
+```
+
+```{r}
+## Situación Desfavorable:
+
+hurwicz_result_desfavorable = criterio.Hurwicz(tb1, alfa = 0.6, favorable = FALSE)
+print("Resultado según el Criterio de Hurwicz (Desfavorable):")
+hurwicz_result_desfavorable$AlternativaOptima
+```
+
+Criterio de Laplace:
+Asume que todos los escenarios son igualmente probables y selecciona la estrategia con la mayor media.
+
+```{r}
+## Situación Favorable:
+
+laplace_result_favorable = criterio.Laplace(tb1, favorable = TRUE)
+print("Resultado según el Criterio de Laplace (Favorable):")
+laplace_result_favorable$AlternativaOptima
+```
+
+```{r}
+## Situación Desfavorable:
+
+laplace_result_desfavorable = criterio.Laplace(tb1, favorable = FALSE)
+print("Resultado según el Criterio de Laplace (Desfavorable):")
+laplace_result_desfavorable$AlternativaOptima
+```
+
+Criterio de Savage (Minimización del Arrepentimiento)
+Minimiza el riesgo de arrepentimiento.
+
+```{r}
+## Situación Favorable:
+
+savage_result_favorable = criterio.Savage(tb1, favorable = TRUE)
+print("Resultado según el Criterio de Savage (Favorable):")
+savage_result_favorable$AlternativaOptima
+```
+
+```{r}
+##Situación Desfavorable:
+
+savage_result_desfavorable = criterio.Savage(tb1, favorable = FALSE)
+print("Resultado según el Criterio de Savage (Desfavorable):")
+savage_result_desfavorable$AlternativaOptima
+```
+
+Este problema inventado demuestra cómo diferentes métodos de toma de decisiones bajo incertidumbre pueden sugerir diferentes estrategias dependiendo de si el escenario es favorable o desfavorable.
+
+
+
+Problema 2: escenario real. 
+
+Tabla de Decisión
+Creamos una tabla de decisión basada en los escenarios planteados:
+
+```{r}
+tb2 = crea.tablaX(c(60000 - 20000, 20000 - 20000,   # Opción A
+                    60000 - 40000, 20000 - 40000),  # Opción B
+                  numalternativas = 2, numestados = 2)
+
+# Mostrar la tabla de decisión
+print("Tabla de Decisión para la Cafetería:")
+tb2
+```
+
+```{r}
+# Aplicar todos los métodos a la tabla de decisión
+resultados_tb2 = criterio.Todos(tb2, alfa = 0.5, favorable = TRUE)
+
+# Mostrar los resultados
+print("Resultados aplicando todos los criterios:")
+resultados_tb2
+
+## graficamente:
+dibuja.criterio.Hurwicz(tb2)
+```
+
+La mejor opción es la A (d1) por todos los criterios, comprar una máquina básica por 20,000 euros. Comprar la máquina básica minimiza las pérdidas potenciales en el escenario desfavorable y proporciona un beneficio más estable en el escenario favorable.
+ 
+
+
+
